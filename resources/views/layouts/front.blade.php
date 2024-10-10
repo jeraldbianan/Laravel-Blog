@@ -52,11 +52,15 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.index') }}">Admin</a>
                         </li>
+
                         <li class="nav-item">
-                            <form action="{{ route('logout') }}" method="POST">
-                                @csrf
-                            </form>
+                            <a onclick="event.preventDefault();document.getElementById('form-logout').submit();"
+                                class="nav-link" href="{{ route('logout') }}">Logout</a>
                         </li>
+
+                        <form id="form-logout" action="{{ route('logout') }}" method="post">
+                            @csrf
+                        </form>
                     @else
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">Login</a>
