@@ -11,6 +11,12 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/admin', function () {
-    return view('admin.index');
+Route::middleware(['auth'])->prefix('admin')->group(function () {
+    Route::get('/', function () {
+        return view('admin.index');
+    });
+
+    Route::get('/posts', function () {
+        return view('admin.posts.index');
+    });
 });
