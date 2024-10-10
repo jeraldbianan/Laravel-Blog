@@ -2,7 +2,7 @@
 
 @section('heading')
     <div class="page-heading">
-        <h1>Contact Me</h1>
+        <h1>Contact</h1>
         <span class="subheading">Have questions? I have answers.</span>
     </div>
 @endsection
