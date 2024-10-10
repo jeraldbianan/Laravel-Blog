@@ -23,7 +23,13 @@
         <div>No Posts..</div>
     @endif
     <!-- Pager -->
-    <div class="clearfix">
-        <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
-    </div>
+    @if ($posts->currentPage() === 1)
+        <a class="btn btn-primary float-right" href="{{ $posts->nextPageUrl() }}">Older Posts &rarr;</a>
+    @elseif (!$posts->hasMorePages())
+        <a class="btn btn-primary float-left" href="{{ $posts->previousPageUrl() }}">&larr; Newer Posts</a>
+    @else
+        <a class="btn btn-primary float-left" href="{{ $posts->previousPageUrl() }}">&larr; Newer Posts</a>
+        <a class="btn btn-primary float-right" href="{{ $posts->nextPageUrl() }}">Older Posts &rarr;</a>
+    @endif
+
 @endsection
