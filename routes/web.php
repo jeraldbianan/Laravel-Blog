@@ -7,8 +7,6 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
-
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/', function () {
         return view('admin.index');
@@ -16,3 +14,6 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
     Route::resource('posts', PostController::class);
 });
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/post/{post}', [HomeController::class, 'show'])->name('home.post');

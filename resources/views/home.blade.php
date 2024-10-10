@@ -1,10 +1,17 @@
 @extends('layouts.front')
 
+@section('heading')
+    <div class="site-heading">
+        <h1>Clean Blog</h1>
+        <span class="subheading">A Blog Theme by Start Bootstrap</span>
+    </div>
+@endsection
+
 @section('content')
     @if ($posts->count())
         @foreach ($posts as $post)
             <div class="post-preview">
-                <a href="post.html">
+                <a href="{{ route('home.post', $post->id) }}">
                     <h2 class="post-title">
                         {{ $post->title }}
                     </h2>

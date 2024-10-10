@@ -25,4 +25,10 @@ class HomeController extends Controller {
 
         return view('home', compact('posts'));
     }
+
+    public function show(Request $request, $post_id) {
+        $post = Post::find($post_id);
+
+        return view('post', compact('post'));
+    }
 }
