@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -16,7 +17,5 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
         return view('admin.index');
     })->name('admin.index');
 
-    Route::get('/posts', function () {
-        return view('admin.posts.index');
-    })->name('admin.posts.index');
+    Route::resource('posts', PostController::class);
 });
