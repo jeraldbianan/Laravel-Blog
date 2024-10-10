@@ -40,17 +40,28 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="{{ route('home') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
+                        <a class="nav-link" href="{{ route('home.about') }}">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="post.html">Sample Post</a>
+                        <a class="nav-link" href="{{ route('home.contact') }}">Contact</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
+                    @if (Auth::check())
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.index') }}">Admin</a>
+                        </li>
+                        <li class="nav-item">
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                            </form>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">Login</a>
+                        </li>
+                    @endif
                 </ul>
             </div>
         </div>

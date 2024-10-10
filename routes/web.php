@@ -16,4 +16,6 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 });
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/post/{post}', [HomeController::class, 'show'])->name('home.post');
+Route::get('/post/{post}', [HomeController::class, 'post'])->name('home.post');
+Route::get('/about', [HomeController::class, 'about'])->name('home.about');
+Route::get('/contact', [HomeController::class, 'contact'])->name('home.contact');
