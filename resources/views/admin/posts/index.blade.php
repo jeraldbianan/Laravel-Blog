@@ -14,33 +14,33 @@
             <table id="datatablesSimple">
                 <thead>
                     <tr>
+                        <th>Id</th>
                         <th>Name</th>
-                        <th>Position</th>
-                        <th>Office</th>
-                        <th>Age</th>
-                        <th>Start date</th>
-                        <th>Salary</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Created_At</th>
+                        <th>Updated_At</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
+                        <th>Id</th>
                         <th>Name</th>
-                        <th>Position</th>
-                        <th>Office</th>
-                        <th>Age</th>
-                        <th>Start date</th>
-                        <th>Salary</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Created_At</th>
+                        <th>Updated_At</th>
                     </tr>
                 </tfoot>
                 <tbody>
                     @foreach ($posts as $post)
                         <tr>
                             <td>{{ $post->id }}</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            <td>$320,800</td>
+                            <td>{{ $post->user->name }}</td>
+                            <td>{{ $post->title }}</td>
+                            <td>{{ $post->body }}</td>
+                            <td>{{ $post->created_at->diffForHumans() }}</td>
+                            <td>{{ $post->updated_at->diffForHumans() }}</td>
                         </tr>
                     @endforeach
                 </tbody>
