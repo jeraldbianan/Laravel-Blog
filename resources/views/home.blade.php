@@ -31,7 +31,9 @@
     @endif
     <!-- Pager -->
     @if ($posts->currentPage() === 1)
-        <a class="btn btn-primary float-right" href="{{ $posts->nextPageUrl() }}">Older Posts &rarr;</a>
+        @if ($posts->lastPage() > 1)
+            <a class="btn btn-primary float-right" href="{{ $posts->nextPageUrl() }}">Older Posts &rarr;</a>
+        @endif
     @elseif (!$posts->hasMorePages())
         <a class="btn btn-primary float-left" href="{{ $posts->previousPageUrl() }}">&larr; Newer Posts</a>
     @else

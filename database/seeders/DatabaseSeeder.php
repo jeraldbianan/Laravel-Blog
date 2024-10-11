@@ -13,7 +13,8 @@ class DatabaseSeeder extends Seeder {
      * Seed the application's database.
      */
     public function run(): void {
-        User::factory(10)->has(Post::factory()->has(Comment::factory()))->create();
+        $user = User::find(1);
+        $user->factory()->has(Post::factory(10)->has(Comment::factory()))->create();
 
         // User::factory()->create([
         //     'name' => 'Test User',

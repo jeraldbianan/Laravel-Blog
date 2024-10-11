@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 class CustomLoginController extends Controller {
 
     public function __construct() {
-        $this->middleware('custom-guest');
+        $this->middleware('custom-guest')->except('customLogout');
     }
 
     public function customShowLoginForm() {
