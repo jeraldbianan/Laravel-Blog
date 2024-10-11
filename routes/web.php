@@ -15,7 +15,9 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('posts', PostController::class);
 });
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/post/{post}', [HomeController::class, 'post'])->name('home.post');
-Route::get('/about', [HomeController::class, 'about'])->name('home.about');
-Route::get('/contact', [HomeController::class, 'contact'])->name('home.contact');
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/',  'index')->name('home');
+    Route::get('/post/{post}',  'post')->name('home.post');
+    Route::get('/about',  'about')->name('home.about');
+    Route::get('/contact',  'contact')->name('home.contact');
+});
