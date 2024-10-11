@@ -9,16 +9,35 @@
             <form method="post" action="{{ route('custom.login.post') }}">
                 @csrf
                 <div class="form-floating mb-3">
-                    <input name="email" class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
+                    <input name="email"
+                        class="form-control @error('email')
+                        is-invalid
+                    @enderror"
+                        id="inputEmail" type="email" placeholder="name@example.com" />
                     <label for="inputEmail">Email address</label>
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
+
                 <div class="form-floating mb-3">
-                    <input name="password" class="form-control" id="inputPassword" type="password" placeholder="Password" />
+                    <input name="password"
+                        class="form-control @error('password')
+                        is-invalid
+                    @enderror"
+                        id="inputPassword" type="password" placeholder="Password" />
                     <label for="inputPassword">Password</label>
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
+
                 <div class="form-check mb-3">
-                    <input name="remember" class="form-check-input" id="inputRememberPassword" type="checkbox"
-                        value="" />
+                    <input name="remember" class="form-check-input" id="inputRememberPassword" type="checkbox" />
                     <label class="form-check-label" for="inputRememberPassword">Remember
                         Password</label>
                 </div>

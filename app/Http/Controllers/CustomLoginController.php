@@ -12,6 +12,11 @@ class CustomLoginController extends Controller {
     }
 
     public function customLogin(Request $request) {
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
             return redirect()->route('posts.index');
         }
