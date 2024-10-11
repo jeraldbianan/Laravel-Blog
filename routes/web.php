@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::middleware(['auth'])->prefix('admin')->group(function () {
+Route::middleware(['custom-auth'])->prefix('admin')->group(function () {
     Route::get('/', function () {
         return view('admin.index');
     })->name('admin.index');

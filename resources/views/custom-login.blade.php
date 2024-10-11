@@ -6,6 +6,13 @@
             <h3 class="text-center font-weight-light my-4">Login</h3>
         </div>
         <div class="card-body">
+
+            @if (session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+            @endif
+
             <form method="post" action="{{ route('custom.login.post') }}">
                 @csrf
                 <div class="form-floating mb-3">
@@ -41,6 +48,7 @@
                     <label class="form-check-label" for="inputRememberPassword">Remember
                         Password</label>
                 </div>
+
                 <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                     <a class="small" href="password.html">Forgot Password?</a>
                     <button type="submit" class="btn btn-primary">Login</button>

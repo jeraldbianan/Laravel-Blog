@@ -6,8 +6,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class CustomLoginController extends Controller {
-    public function customShowLoginForm() {
 
+    public function __construct() {
+        $this->middleware('custom-guest');
+    }
+
+    public function customShowLoginForm() {
         return view('custom-login');
     }
 
