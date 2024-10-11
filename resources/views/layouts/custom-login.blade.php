@@ -14,36 +14,41 @@
 
 @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
-<body style="background-image: url({{ $formBgImage }})">
-    <div id="layoutAuthentication">
-        <div id="layoutAuthentication_content">
-            <main>
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-5">
+<body>
+    <div class="bg-image"
+        style="background-image: url({{ $formBgImage }});
+        width: 100%; height: 100vh; background-repeat: no-repeat; background-size: cover;">
+        <div id="layoutAuthentication">
+            <div id="layoutAuthentication_content">
+                <main>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-5">
 
-                            @yield('content')
+                                @yield('content')
 
+                            </div>
                         </div>
                     </div>
-                </div>
-            </main>
-        </div>
-        <div id="layoutAuthentication_footer">
-            <footer class="py-4 bg-light mt-auto">
-                <div class="container-fluid px-4">
-                    <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; JBBlogs 2024</div>
-                        <div>
-                            <a href="#">Privacy Policy</a>
-                            &middot;
-                            <a href="#">Terms &amp; Conditions</a>
+                </main>
+            </div>
+            <div id="layoutAuthentication_footer">
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; JBBlogs 2024</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </footer>
+                </footer>
+            </div>
         </div>
     </div>
+
 
     @yield('scripts')
 

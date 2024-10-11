@@ -55,10 +55,10 @@
 
                         <li class="nav-item">
                             <a onclick="event.preventDefault();document.getElementById('form-logout').submit();"
-                                class="nav-link" href="{{ route('logout') }}">Logout</a>
+                                class="nav-link" href="{{ route('custom.logout') }}">Logout</a>
                         </li>
 
-                        <form id="form-logout" action="{{ route('logout') }}" method="post">
+                        <form id="form-logout" action="{{ route('custom.logout') }}" method="post">
                             @csrf
                         </form>
                     @else

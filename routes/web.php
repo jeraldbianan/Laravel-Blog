@@ -25,4 +25,6 @@ Route::controller(HomeController::class)->group(function () {
 
 Route::controller(CustomLoginController::class)->group(function () {
     Route::get('/custom-login',  'customShowLoginForm')->name('custom.login');
+    Route::post('/custom-login',  'customLogin')->name('custom.login.post');
+    Route::post('/custom-logout',  'customLogout')->name('custom.logout');
 });
