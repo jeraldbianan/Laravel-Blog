@@ -28,10 +28,19 @@ class CustomPasswordResetController extends Controller {
         }
     }
 
-    public function customPasswordResetForm() {
-        return view('custom-password-reset-form');
+    public function customPasswordResetForm(Request $request, $token) {
+        $email = $request->query('email');
+        return view('custom-password-reset-form', [
+            'email' => $email,
+            'token' => $token
+        ]);
     }
 
-    public function customPasswordReset() {
+    public function customPasswordReset(Request $request) {
+        $request->validate([
+            'token' => 'required',
+            'email' => 'required',
+            'password' => 'required|confirmed',
+        ]);
     }
 }
