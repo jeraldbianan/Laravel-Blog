@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Str;
 
 class CustomPasswordResetController extends Controller {
     public function __construct() {
@@ -41,6 +44,21 @@ class CustomPasswordResetController extends Controller {
             'token' => 'required',
             'email' => 'required',
             'password' => 'required|confirmed',
+            'password_confirmation' => 'required'
         ]);
+
+        $status = Password::reset($request->only('email', 'password', 'password_confirmation', 'token'), function (User $user, $password) {
+            $user->forceFill([
+                'password' => Hash::make($password),
+            ])->setRememberToken(Str::random(40));
+
+            $user->save();
+        });
+
+        if ($status === Password::PASSWORD_RESET) {
+            return redirect()->route('custom.login')->with(['status' => __($status)]);
+        } else {
+            return back()->with(['error' => __($status)]);
+        }
     }
 }

@@ -12,8 +12,8 @@
                 <input type="hidden" name="token" value="{{ $token }}">
 
                 <div class="form-floating mb-3">
-                    <input class="form-control" id="inputEmail" type="text" value="{{ $email ?? old('email') }}"
-                        readonly />
+                    <input name="email" class="form-control" id="inputEmail" type="text"
+                        value="{{ $email ?? old('email') }}" readonly />
                     <label for="inputEmail">Email address</label>
                 </div>
 
@@ -51,7 +51,20 @@
                     </div>
                 @endif
 
-                <div class="d-flex align-items-center justify-content-end mt-4 mb-0">
+                @if (session('error'))
+                    <div class="alert alert-danger" role="alert">
+                        {{ session('error') }}
+                    </div>
+                @endif
+
+                <div
+                    class="d-flex align-items-center mt-4 mb-0
+                @if (session('error')) justify-content-between
+                @else
+                justify-content-end @endif">
+                    @if (session('error'))
+                        <a class="small" href="{{ route('custom.login') }}">Return to login</a>
+                    @endif
                     <button type="submit" class="btn btn-primary">Reset Password</button>
                 </div>
             </form>
