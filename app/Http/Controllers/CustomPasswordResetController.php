@@ -11,7 +11,7 @@ class CustomPasswordResetController extends Controller {
     }
 
     public function customPasswordResetLinkForm() {
-        return view('custom-password-reset-form');
+        return view('custom-password-reset-link-form');
     }
 
     public function customPasswordResetSendLink(Request $request) {
@@ -26,5 +26,12 @@ class CustomPasswordResetController extends Controller {
         } else {
             return back()->withErrors(['email' => __($status)]);
         }
+    }
+
+    public function customPasswordResetForm() {
+        return view('custom-password-reset-form');
+    }
+
+    public function customPasswordReset() {
     }
 }
