@@ -13,7 +13,7 @@ class FormBackgroundImageComposer {
             case 'custom.login':
                 $formBgImage = asset('images/login.jpg');
                 break;
-            case 'custom.password.reset.form':
+            case 'custom.password.reset.link.form':
                 $formBgImage = asset('images/password-reset.jpg');
                 break;
                 // case 'home.about':

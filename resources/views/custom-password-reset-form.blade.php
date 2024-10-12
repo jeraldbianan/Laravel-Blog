@@ -8,7 +8,7 @@
         <div class="card-body">
             <div class="small mb-3 text-muted">Enter your email address and we will send you a link to reset your password.
             </div>
-            <form method="post" action="{{ route('custom.password.reset') }}">
+            <form method="post" action="{{ route('custom.password.reset.send.link') }}">
                 @csrf
                 <div class="form-floating mb-3">
                     <input name="email"
@@ -23,6 +23,13 @@
                         </span>
                     @enderror
                 </div>
+
+                @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
+                @endif
+
                 <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                     <a class="small" href="{{ route('custom.login') }}">Return to login</a>
                     <button type="submit" class="btn btn-primary">Reset Password</button>

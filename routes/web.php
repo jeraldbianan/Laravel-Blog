@@ -31,6 +31,6 @@ Route::controller(CustomLoginController::class)->group(function () {
 });
 
 Route::controller(CustomPasswordResetController::class)->group(function () {
-    Route::get('/custom-password-reset-form',  'customPasswordResetForm')->name('custom.password.reset.form');
-    Route::post('/custom-password-reset',  'customPasswordReset')->name('custom.password.reset');
+    Route::get('/custom-password-reset-link-form',  'customPasswordResetLinkForm')->name('custom.password.reset.link.form');
+    Route::post('/custom-password-reset-send-link',  'customPasswordResetSendLink')->name('custom.password.reset.send.link');
 });
