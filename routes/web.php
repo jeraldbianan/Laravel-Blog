@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CustomLoginController;
+use App\Http\Controllers\CustomPasswordResetController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Auth;
@@ -27,4 +28,9 @@ Route::controller(CustomLoginController::class)->group(function () {
     Route::get('/custom-login',  'customShowLoginForm')->name('custom.login');
     Route::post('/custom-login',  'customLogin')->name('custom.login.post');
     Route::post('/custom-logout',  'customLogout')->name('custom.logout');
+});
+
+Route::controller(CustomPasswordResetController::class)->group(function () {
+    Route::get('/custom-password-reset-form',  'customPasswordResetForm')->name('custom.password.reset.form');
+    Route::post('/custom-password-reset',  'customPasswordReset')->name('custom.password.reset');
 });

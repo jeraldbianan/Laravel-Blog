@@ -125,7 +125,7 @@
                             </a>
                         </li>
                     </ul>
-                    <p class="copyright text-muted">Copyright &copy; Your Website 2020</p>
+                    <p class="copyright text-muted">Copyright &copy; JBBlogs 2024</p>
                 </div>
             </div>
         </div>

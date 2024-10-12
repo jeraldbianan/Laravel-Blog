@@ -13,9 +13,9 @@ class FormBackgroundImageComposer {
             case 'custom.login':
                 $formBgImage = asset('images/login.jpg');
                 break;
-                // case 'home.post':
-                //     $mastHeadPhoto = asset('images/blog-post.jpg');
-                //     break;
+            case 'custom.password.reset.form':
+                $formBgImage = asset('images/password-reset.jpg');
+                break;
                 // case 'home.about':
                 //     $mastHeadPhoto = asset('images/about.jpg');
                 //     break;
