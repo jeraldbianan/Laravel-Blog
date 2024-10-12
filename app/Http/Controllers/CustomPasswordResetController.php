@@ -9,13 +9,6 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 
 class CustomPasswordResetController extends Controller {
-    public function __construct() {
-        $this->middleware('custom-guest');
-    }
-
-    public function customPasswordResetLinkForm() {
-        return view('custom-password-reset-link-form');
-    }
 
     public function customPasswordResetSendLink(Request $request) {
         $request->validate([

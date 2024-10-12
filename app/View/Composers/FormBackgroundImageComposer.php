@@ -19,9 +19,9 @@ class FormBackgroundImageComposer {
             case 'custom.password.reset.form':
                 $formBgImage = asset('images/password-reset-2.jpg');
                 break;
-                // case 'home.contact':
-                //     $mastHeadPhoto = asset('images/contact.jpg');
-                //     break;
+            case 'custom.register.form':
+                $formBgImage = asset('images/register.jpg');
+                break;
         }
 
         $view->with('formBgImage', $formBgImage);

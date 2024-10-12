@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CustomLoginController;
 use App\Http\Controllers\CustomPasswordResetController;
+use App\Http\Controllers\CustomRegistrationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Auth;
@@ -30,9 +31,14 @@ Route::controller(CustomLoginController::class)->group(function () {
     Route::post('/custom-logout',  'customLogout')->name('custom.logout');
 });
 
-Route::controller(CustomPasswordResetController::class)->group(function () {
-    Route::get('/custom-password-reset-link-form',  'customPasswordResetLinkForm')->name('custom.password.reset.link.form');
+Route::middleware('custom-guest')->controller(CustomPasswordResetController::class)->group(function () {
+    Route::view('/custom-password-reset-link-form',  'custom-password-reset-link-form')->name('custom.password.reset.link.form');
     Route::post('/custom-password-reset-send-link',  'customPasswordResetSendLink')->name('custom.password.reset.send.link');
     Route::get('/custom-password-reset/{token}',  'customPasswordResetForm')->name('custom.password.reset.form');
     Route::post('/custom-password-reset',  'customPasswordReset')->name('custom.password.reset');
+});
+
+Route::middleware('custom-guest')->controller(CustomRegistrationController::class)->group(function () {
+    Route::view('/custom-register-form',  'custom-register-form')->name('custom.register.form');
+    Route::post('/custom-register',  'customRegister')->name('custom.register');
 });
