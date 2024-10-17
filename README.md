@@ -1,5 +1,15 @@
 JBBlogs - Laravel
 
+# Steps to run the application
+- Create a database
+- setup env and connect to the database
+- php artisan migrate
+- npm install
+- npm run dev
+- php artisan serve
+
+<br />
+<br />
 ![image 1-min](https://github.com/user-attachments/assets/0be16886-43c6-4268-944c-edc755479caf)
 <br />
 ![image 2-min](https://github.com/user-attachments/assets/7167951a-cae2-46c6-82fc-41f854345642)
