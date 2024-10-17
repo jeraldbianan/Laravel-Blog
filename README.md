@@ -1,3 +1,14 @@
+JBBlogs - Laravel
+
+![image 1-min](https://github.com/user-attachments/assets/0be16886-43c6-4268-944c-edc755479caf)
+<br />
+![image 2-min](https://github.com/user-attachments/assets/7167951a-cae2-46c6-82fc-41f854345642)
+<br />
+![image 3-min](https://github.com/user-attachments/assets/4bfd4b68-a87d-4039-b73e-3aa3209fbdb7)
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
