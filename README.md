@@ -1,6 +1,6 @@
-JBBlogs - Laravel
+#JBBlogs - Laravel
 
-# Steps to run the application
+### Steps to run the application
 - Create a database
 - setup env and connect to the database
 - php artisan migrate
