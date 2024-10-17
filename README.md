@@ -1,4 +1,4 @@
-#JBBlogs - Laravel
+# JBBlogs - Laravel
 
 ### Steps to run the application
 - Create a database
